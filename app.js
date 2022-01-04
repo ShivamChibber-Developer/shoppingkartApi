@@ -6,8 +6,11 @@ dotenv.config()
 const port = process.env.PORT || 8210;
 const mongo = require('mongodb')
 const MongoClient = mongo.MongoClient;
+const cors = require('cors')
+
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json());
+app.use(cors());
 // const mongourl ="http://localhost:8210"
 const mongourl = "mongodb+srv://shivam:1234@cluster0.g43io.mongodb.net/shoppingkart?retryWrites=true&w=majority"
 var db;
