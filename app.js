@@ -64,6 +64,13 @@ app.get('/homeAppliances', (req, res) => {
 });
 
 // SUBCATEGORY 
+app.get('/subcategory', (req, res) => {
+    db.collection("subcategory").find().toArray((err, result) => {
+        if (err) throw err;
+        res.send(result)
+    });
+});
+
 // ELECTRONICS SUBCATEGORY 
 app.get('/shopping/:subcategory', (req, res) => {
     var subcategory = req.params.subcategory;
