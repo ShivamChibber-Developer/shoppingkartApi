@@ -72,8 +72,8 @@ app.get('/subcategory1', (req, res) => {
 });
 
 // ELECTRONICS SUBCATEGORY 
-app.get('/shopping/:subcategory', (req, res) => {
-    var subcategory = req.params.subcategory;
+app.get('/shopping/', (req, res) => {
+    var subcategory = req.query.subcategory;
     var query = { "subcateggory_Id": Number(subcategory) }
     db.collection("shopping").find(query).toArray((err, result) => {
         if (err) throw err;
