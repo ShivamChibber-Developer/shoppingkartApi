@@ -105,6 +105,15 @@ app.get('/details/:id', (req,res) => {
     });
 });
 
+// FIND ITEM 
+app.post('/menuItem', (req,res) => {
+    console.log(req.body)
+    db.collection("shopping").find({id:{$in:req.body.ids}}).toArray((err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+});
+
 //PLACE ORDER 
 app.post('/placeOrder', (req, res) => {
     console.log(req.body);
