@@ -108,7 +108,7 @@ app.get('/details/:id', (req,res) => {
 // FIND ITEM 
 app.post('/menuItem', (req,res) => {
     console.log(req.body)
-    db.collection("shopping").find({id:{$in:req.body.ids}}).toArray((err, result) => {
+    db.collection("shopping").find({id:{$in:req.body}}).toArray((err, result) => {
         if (err) throw err;
         res.send(result);
     });
